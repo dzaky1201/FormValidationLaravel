@@ -13,13 +13,13 @@
     <div class="container pt-4 bg-white">
         <div class="row">
             <div class="col-md-8 col-xl-6">
-                <h1>Pendaftaran Mahasiswa</h1>
+                <h1>{{ __('form.judul') }}</h1>
                 <hr>
 
-                <form action="{{url('/proses-form-request')}}" method="POST">
+                <form action="{{url('/proses-form')}}" method="POST">
                     @csrf
                     <div class="form-group">
-                        <label for="nim">NIM</label>
+                        <label for="nim">{{ __('form.input.nim') }}</label>
                         <input type="text" class="form-control @error('nim') is-invalid @enderror" id="nim" name="nim"
                             value="{{ old('nim') }}">
                         @error('nim')
@@ -27,7 +27,7 @@
                         @enderror
                     </div>
                     <div class="form-group">
-                        <label for="nama">Nama Lengkap</label>
+                        <label for="nama">{{ __('form.input.nama_lengkap') }}</label>
                         <input type="text" class="form-control @error('nama') is-invalid @enderror" id="nama"
                             name="nama" value="{{ old('nama') }}">
                         @error('nama')
@@ -35,7 +35,7 @@
                         @enderror
                     </div>
                     <div class="form-group">
-                        <label for="email">Email</label>
+                        <label for="email">{{ __('form.input.email') }}</label>
                         <input type="text" class="form-control @error('email') is-invalid @enderror" id="email"
                             name="email" value="{{ old('email') }}">
                         @error('email')
@@ -43,17 +43,19 @@
                         @enderror
                     </div>
                     <div class="form-group">
-                        <label>Jenis Kelamin</label>
+                        <label>{{ __('form.input.jenis_kelamin') }}</label>
                         <div>
                             <div class="form-check form-check-inline">
                                 <input class="form-check-input" type="radio" name="jenis_kelamin" id="laki_laki"
                                     value="L" {{ old('jenis_kelamin')=='L' ? 'checked' : '' }}>
-                                <label class="form-check-label" for="laki_laki">Laki-laki</label>
+                                <label class="form-check-label" for="laki_laki">{{
+                                    __('form.input.pilihan_jenis_kelamin.laki_laki') }}-laki</label>
                             </div>
                             <div class="form-check form-check-inline">
                                 <input class="form-check-input" type="radio" name="jenis_kelamin" id="perempuan"
                                     value="P" {{ old('jenis_kelamin')=='P' ? 'checked' : '' }}>
-                                <label class="form-check-label" for="perempuan">Perempuan</label>
+                                <label class="form-check-label" for="perempuan">{{
+                                    __('form.input.pilihan_jenis_kelamin.perempuan') }}</label>
                             </div>
                             @error('jenis_kelamin')
                             <div class="text-danger">{{ $message }}</div>
@@ -61,7 +63,7 @@
                         </div>
                     </div>
                     <div class="form-group">
-                        <label for="jurusan">Jurusan</label>
+                        <label for="jurusan">{{ __('form.input.jurusan') }}</label>
                         <select class="form-control" name="jurusan" id="jurusan">
                             <option value="Teknik Informatika" {{ old('jurusan')=='Teknik Informatika' ? 'seleceted'
                                 : '' }}>Teknik
@@ -83,10 +85,10 @@
                         @enderror
                     </div>
                     <div class="form-group">
-                        <label for="alamat">Alamat</label>
+                        <label for="alamat">{{ __('form.input.alamat') }}</label>
                         <textarea class="form-control" id="alamat" rows="3" name="alamat"></textarea>
                     </div>
-                    <button type="submit" class="btn btn-primary mb-2">Daftar</button>
+                    <button type="submit" class="btn btn-primary mb-2">{{ __('form.input.tombol') }}</button>
                 </form>
             </div>
         </div>

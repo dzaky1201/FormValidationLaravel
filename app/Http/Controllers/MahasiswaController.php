@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\DaftarMahasiswa;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Validator;
 
 class MahasiswaController extends Controller
@@ -84,5 +85,23 @@ class MahasiswaController extends Controller
     {
         $validateData = $request->validated();
         dump($validateData);
+    }
+
+    // localization
+    public function formPendaftaranId()
+    {
+        App::setLocale('id');
+        return view('form-pendaftaran');
+    }
+    public function formPendaftaranEn()
+    {
+        App::setLocale('en');
+        return view('form-pendaftaran');
+    }
+
+    public function formPendaftaran($locale = 'id')
+    {
+        App::setLocale($locale);
+        return view('form-pendaftaran');
     }
 }

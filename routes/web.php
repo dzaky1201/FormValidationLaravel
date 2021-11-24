@@ -24,3 +24,17 @@ Route::post('/proses-form-request', [
     MahasiswaController::class,
     'prosesFormRequest'
 ]);
+
+Route::get('/form-pendaftaran/id', [
+    MahasiswaController::class,
+    'formPendaftaranId'
+]);
+Route::get('/form-pendaftaran/en', [
+    MahasiswaController::class,
+    'formPendaftaranEn'
+]);
+
+Route::get('/form-pendaftaran/{locale?}', [
+    MahasiswaController::class,
+    'formPendaftaran'
+]);
